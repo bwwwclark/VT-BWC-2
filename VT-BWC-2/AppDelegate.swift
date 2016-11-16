@@ -13,6 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let stack = CoreDataStack(modelName: "Model")
+    
+    //MARK: Preload Data
+    
+    func preloadData() {
+        
+        //Remove previous data
+        
+        do {
+            try stack?.dropAllData()
+        } catch {
+            print("Error dropping all objects in DB")
+        }
+        
+
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
